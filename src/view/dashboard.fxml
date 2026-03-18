@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.BarChart?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="controller.DashboardController" spacing="15" style="-fx-padding: 15;">
+    
+    <Label text="Dashboard" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+    
+    <HBox spacing="15">
+        <VBox style="-fx-border-color: #bdc3c7; -fx-padding: 15; -fx-border-radius: 5;" prefWidth="200">
+            <Label text="Total Adhérents" style="-fx-font-size: 12; -fx-text-fill: #7f8c8d;"/>
+            <Label fx:id="totalAdherentsLabel" text="0" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #2980b9;"/>
+        </VBox>
+        
+        <VBox style="-fx-border-color: #bdc3c7; -fx-padding: 15; -fx-border-radius: 5;" prefWidth="200">
+            <Label text="Total Activités" style="-fx-font-size: 12; -fx-text-fill: #7f8c8d;"/>
+            <Label fx:id="totalActivitesLabel" text="0" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+        </VBox>
+        
+        <VBox style="-fx-border-color: #bdc3c7; -fx-padding: 15; -fx-border-radius: 5;" prefWidth="200">
+            <Label text="Cotisations Payées" style="-fx-font-size: 12; -fx-text-fill: #7f8c8d;"/>
+            <Label fx:id="cotisationsPayeesLabel" text="0" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #f39c12;"/>
+        </VBox>
+        
+        <VBox style="-fx-border-color: #bdc3c7; -fx-padding: 15; -fx-border-radius: 5;" prefWidth="200">
+            <Label text="Cotisations Non Payées" style="-fx-font-size: 12; -fx-text-fill: #7f8c8d;"/>
+            <Label fx:id="cotisationsNonPayeesLabel" text="0" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #e74c3c;"/>
+        </VBox>
+    </HBox>
+    
+    <HBox spacing="15" style="-fx-padding: 10;">
+        <PieChart fx:id="cotisationsPieChart" prefWidth="400" prefHeight="300"/>
+        <BarChart fx:id="occupancyBarChart" prefWidth="600" prefHeight="300"/>
+    </HBox>
+    
+    <Region vgrow="ALWAYS"/>
+</VBox>

@@ -1,0 +1,130 @@
+/* Main Application Styles */
+* {
+  -fx-font-family: "Segoe UI", "Helvetica Neue", Arial;
+}
+
+/* Root and Main Containers */
+.root {
+  -fx-background-color: #ecf0f1;
+}
+
+BorderPane {
+  -fx-background-color: #ecf0f1;
+}
+
+/* Headers and Labels */
+Label {
+  -fx-text-fill: #2c3e50;
+}
+
+/* Buttons */
+Button {
+  -fx-padding: 8 16 8 16;
+  -fx-font-size: 12;
+  -fx-border-radius: 4;
+  -fx-background-color: #3498db;
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+  -fx-cursor: hand;
+}
+
+Button:hover {
+  -fx-background-color: #2980b9;
+}
+
+Button:pressed {
+  -fx-background-color: #1f618d;
+}
+
+/* TableView */
+TableView {
+  -fx-border-color: #bdc3c7;
+  -fx-border-radius: 4;
+}
+
+TableColumn {
+  -fx-alignment: CENTER;
+}
+
+.table-row-cell {
+  -fx-padding: 8;
+}
+
+.table-row-cell:selected {
+  -fx-background-color: #3498db;
+  -fx-text-fill: white;
+}
+
+/* TextFields and ComboBox */
+TextField,
+ComboBox,
+DatePicker {
+  -fx-padding: 8;
+  -fx-border-color: #bdc3c7;
+  -fx-border-radius: 4;
+  -fx-font-size: 12;
+}
+
+TextField:focused,
+ComboBox:focused,
+DatePicker:focused {
+  -fx-border-color: #3498db;
+  -fx-border-width: 2;
+}
+
+/* Spinners */
+Spinner {
+  -fx-padding: 6;
+}
+
+/* Separators */
+Separator {
+  -fx-padding: 10 0 10 0;
+}
+
+/* Charts */
+PieChart {
+  -fx-padding: 10;
+}
+
+BarChart {
+  -fx-padding: 10;
+}
+
+/* Scroll Pane */
+ScrollPane {
+  -fx-background-color: #ecf0f1;
+  -fx-padding: 0;
+}
+
+ScrollPane:focused {
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
+}
+
+/* Menu Sidebar */
+#sidebar {
+  -fx-background-color: #34495e;
+}
+
+/* Statistics Cards */
+.stat-card {
+  -fx-border-color: #bdc3c7;
+  -fx-border-radius: 4;
+  -fx-padding: 15;
+  -fx-background-color: #ffffff;
+}
+
+.stat-value {
+  -fx-font-size: 28;
+  -fx-font-weight: bold;
+}
+
+/* Alerts */
+Alert {
+  -fx-graphic: null;
+}
+
+Alert .header-panel {
+  -fx-text-fill: #2c3e50;
+}

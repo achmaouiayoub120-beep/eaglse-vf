@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox style="-fx-background-color: #2c3e50; -fx-padding: 15;">
+            <Label text="Club Manager - Gestion de Club Sportif" style="-fx-text-fill: white; -fx-font-size: 20; -fx-font-weight: bold;"/>
+        </VBox>
+    </top>
+
+    <left>
+        <VBox style="-fx-background-color: #34495e; -fx-padding: 10; -fx-spacing: 10;">
+            <Label text="Menu" style="-fx-text-fill: white; -fx-font-size: 14; -fx-font-weight: bold;"/>
+            <Button text="Dashboard" style="-fx-padding: 10; -fx-font-size: 12;" onAction="#handleDashboard"/>
+            <Button text="Adhérents" style="-fx-padding: 10; -fx-font-size: 12;" onAction="#handleAdherents"/>
+            <Button text="Activités" style="-fx-padding: 10; -fx-font-size: 12;" onAction="#handleActivites"/>
+            <Button text="Entraîneurs" style="-fx-padding: 10; -fx-font-size: 12;" onAction="#handleEntraineurs"/>
+            <Button text="Cotisations" style="-fx-padding: 10; -fx-font-size: 12;" onAction="#handleCotisations"/>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <VBox fx:id="contentContainer"/>
+        </ScrollPane>
+    </center>
+</BorderPane>

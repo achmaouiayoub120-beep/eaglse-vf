@@ -1,0 +1,112 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  ADMIN
+  MEMBER
+}
+
+enum UserStatus {
+  ACTIVE
+  PENDING
+  SUSPENDED
+}
+
+enum PaymentStatus {
+  PAID
+  UNPAID
+  PENDING
+}
+
+model User {
+  id            String       @id @default(cuid())
+  fullName      String
+  email         String       @unique
+  passwordHash  String
+  role          Role         @default(MEMBER)
+  phone         String?
+  address       String?
+  city          String?
+  age           Int?
+  status        UserStatus   @default(ACTIVE)
+  memberCode    String?      @unique
+  joinDate      DateTime     @default(now())
+  membershipType String?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  payments      Payment[]
+  events        Event[]      @relation("EventCreator")
+  mediaItems    MediaItem[]
+  announcements Announcement[]
+
+  @@map("users")
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  location    String?
+  eventDate   DateTime
+  eventTime   String?
+  capacity    Int      @default(50)
+  imageUrl    String?
+  createdById String
+  createdBy   User     @relation("EventCreator", fields: [createdById], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("events")
+}
+
+model Payment {
+  id          String        @id @default(cuid())
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount      Float
+  period      String
+  status      PaymentStatus @default(UNPAID)
+  method      String?
+  paymentDate DateTime?
+  note        String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@map("payments")
+}
+
+model MediaItem {
+  id          String   @id @default(cuid())
+  title       String
+  imageUrl    String
+  category    String?
+  description String?
+  uploadedById String
+  uploadedBy  User     @relation(fields: [uploadedById], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("media_items")
+}
+
+model Announcement {
+  id         String   @id @default(cuid())
+  title      String
+  content    String
+  visibility String   @default("public")
+  pinned     Boolean  @default(false)
+  createdById String
+  createdBy  User     @relation(fields: [createdById], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("announcements")
+}

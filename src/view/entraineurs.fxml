@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="controller.EntreineursController" spacing="15" style="-fx-padding: 15;">
+    
+    <Label text="Gestion des Entraîneurs" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+    
+    <TableView fx:id="entreineursTable" prefHeight="300" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="nomColumn" text="Nom" prefWidth="200"/>
+            <TableColumn fx:id="specialiteColumn" text="Spécialité" prefWidth="200"/>
+        </columns>
+    </TableView>
+    
+    <Separator/>
+    
+    <Label text="Ajouter/Modifier Entraîneur" style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+    
+    <GridPane hgap="10" vgap="10" style="-fx-padding: 10;">
+        <Label text="Nom :" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="nomField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        
+        <Label text="Spécialité :" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="specialiteField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+    
+    <HBox spacing="10">
+        <Button fx:id="addButton" text="Ajouter" style="-fx-padding: 10;"/>
+        <Button fx:id="updateButton" text="Modifier" style="-fx-padding: 10;"/>
+        <Button fx:id="deleteButton" text="Supprimer" style="-fx-padding: 10;"/>
+    </HBox>
+</VBox>
