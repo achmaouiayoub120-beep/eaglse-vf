@@ -1,6 +1,10 @@
 import { createRouteHandler } from "uploadthing/server"
 import { ourFileRouter } from "@/lib/uploadthing"
 
-export const { GET, POST } = createRouteHandler({
+const handler = createRouteHandler({
   router: ourFileRouter,
 })
+
+export const GET = handler
+export const POST = handler
+

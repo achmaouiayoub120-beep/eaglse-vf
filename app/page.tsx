@@ -89,7 +89,7 @@ function mapDbAnnouncement(a: any): Announcement {
 
 function LoadingSkeleton() {
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex h-screen bg-background" suppressHydrationWarning>
       <div className="w-[260px] bg-card border-r border-border skeleton-shimmer" />
       <div className="flex-1 p-6 space-y-6">
         <div className="h-12 skeleton-shimmer rounded-xl" />
